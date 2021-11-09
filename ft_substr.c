@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 13:59:18 by vsedat            #+#    #+#             */
-/*   Updated: 2021/11/07 14:59:41 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 16:19:39 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char
 	new_len = ft_strlen(s + start);
 	if (new_len < len)
 		len = new_len;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
+	substr = (char *)malloc((len + 1) * sizeof(char));
 	if (!substr)
 		return (0);
 	ft_strlcpy(substr, s + start, len + 1);

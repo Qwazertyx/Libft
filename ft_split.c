@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:28:01 by vsedat            #+#    #+#             */
-/*   Updated: 2021/11/07 15:04:07 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2021/11/09 10:52:35 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,50 +57,46 @@ int	lenword(const char *str, char sep, int whichword)
 	return (lenword);
 }
 
-void	ft_split2(char const *s, char c, char **split)
+char	**mallocerror(char **tab)
 {
-	int		i;
-	int		j;
-	int		k;
+	unsigned int	i;
 
 	i = 0;
-	k = 0;
-	while (i < c_words(s, c) && s[k])
+	while (tab[i])
 	{
-		j = 0;
-		while (s[k] == c)
-			k++;
-		while (s[k] != c && s[k])
-			split[i][j++] = s[k++];
-		split[i++][j] = 0;
+		free(tab[i]);
+		i++;
 	}
-	split[i] = 0;
+	free(tab);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
 	char	**split;
+	int		j;
+	int		k;
 
 	if (!s)
 		return (0);
-	i = 0;
 	split = malloc((c_words(s, c) + 1) * sizeof(char *));
 	if (!split)
 		return (0);
+	k = 0;
+	i = 0;
 	while (i < c_words(s, c))
 	{
-		split[i] = malloc((lenword(s, c, i) + 1) * sizeof(char));
+		split[i] = malloc((lenword(s, c, i)) * sizeof(char));
 		if (!split[i])
-		{
-			i = 0;
-			while (split[i])
-				free(split[i++]);
-			free(split);
 			return (0);
-		}
-		i++;
+		j = 0;
+		while (s[k] == c)
+			k++;
+		while (j < lenword(s, c, i + 1))
+			split[i][j++] = s[k++];
+		split[i++][j] = 0;
 	}
-	ft_split2(s, c, split);
+	split[i] = 0;
 	return (split);
 }

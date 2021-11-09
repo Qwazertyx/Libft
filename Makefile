@@ -6,7 +6,7 @@
 #    By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 12:35:11 by vsedat            #+#    #+#              #
-#    Updated: 2021/11/08 15:44:31 by vsedat           ###   ########lyon.fr    #
+#    Updated: 2021/11/08 22:31:11 by vsedat           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ NAME	= libft.a
 
 CC		= clang
 
-CFLAGS	= -Wall -Wextra -Werror -O3 -fno-builtin
+CFLAGS	= -Wall -Wextra -Werror
 
 %.o: %.c libft.h Makefile
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
