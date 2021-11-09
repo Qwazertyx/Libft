@@ -6,7 +6,7 @@
 #    By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 12:35:11 by vsedat            #+#    #+#              #
-#    Updated: 2021/11/08 22:31:11 by vsedat           ###   ########lyon.fr    #
+#    Updated: 2021/11/09 12:51:28 by vsedat           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ OBJS_BONUS	= ${SRCS_BONUS:%.c=%.o}
 
 NAME	= libft.a
 
-CC		= clang
+CC		= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
